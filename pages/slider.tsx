@@ -18,14 +18,14 @@ const SamplePrevArrow = ({ onClick }: { onClick?: any }) => {
   );
 };
 
-const Sliderr = () => {
+const Sliderr = ({ device }: { device: string }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const testSettings = {};
 
   var settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 6,
+    slidesToShow: device == "mobile" ? 2.5 : 6,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -57,6 +57,7 @@ const Sliderr = () => {
               : { backgroundColor: "#DDDDDD", outline: "none" }
           }
         >
+          {" "}
           {index + 1}
         </button>
       );
